@@ -1,6 +1,13 @@
 # deep-learning-project
 Project for CMU's Deep Learning Class
 
+Architecture: YOLOv8s (Jocher et al., 2023)  
+Dataset: `grantmwilkinson/IDID_Dataset` via Hugging Face
+String model checkpoint	`csloya/yolov8-idid-string`
+Shell model checkpoint	`csloya/yolov8-idid-shell`
+Processed dataset	`csloya/yolov8-idid-dataset`
+
+
 # Insulator Defect Identification from Aerial Imagery
 
 This project addresses the detection and classification of insulator defects in aerial power line imagery. Using deep learning, we automate the identification of insulator strings and the classification of individual shell health to streamline infrastructure maintenance.
@@ -30,10 +37,35 @@ Each notebook in this repository is dedicated to training and evaluating a speci
    * **Model:** YOLOv8 (Modern CNN variant).
    * **Role:** Features advanced backbone (CSPDarknet) and neck (PANet) architectures. It provided the highest accuracy for both string and shell detection.
 
+Setup — HuggingFace Token
+Go to https://huggingface.co/settings/tokens
+Create a new read token
+In Colab, open Secrets 
+Add a secret named with your token value
+Update Block 0 of the notebook to use your secret name:
+login(token=userdata.get("HF_TOKEN"))
+
+Running the YOLOv8 Notebook — First Time
+Run blocks in this order:
+Block
+0	Environment Setup	
+1	Global Configuration	
+2	Load Dataset	
+3	Extract Annotations & EDA	
+4	Session Recovery	Downloads models and dataset automatically
+5	Shared Training Utilities	
+Then skip directly to any evaluation block (A6, A7, B6, B7)
+
+Blocks to Skip (Graders)
+The following blocks require write access to `csloya/` and should be skipped:
+A1	Dataset Writer	
+A1.2	Upload Dataset 
+A4 upload section	
+B4 upload section	
+
 3. **`DINO_DETR_Colab.ipynb`**
    * **Model:** DINO-DETR (Transformer-based).
    * **Role:** Utilizes a DINOv3 backbone with a transformer-based detection head. It leverages global self-attention for detection.
-
 
 ---
 
