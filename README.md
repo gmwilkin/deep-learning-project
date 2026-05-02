@@ -22,28 +22,18 @@ The dataset is partitioned into training, validation, and testing sets at a 70:1
 ## Jupyter Notebooks
 Each notebook in this repository is dedicated to training and evaluating a specific model variant:
 
-1. **`YOLOv1_Baseline.ipynb`**
+1. **`YOLOv1_Colab.ipynb`**
    * **Model:** YOLOv1 (CNN-based baseline).
    * **Role:** Establishes a performance floor. It treats detection as a single regression problem but faces challenges with small objects and specific aspect ratios.
 
-2. **`YOLOv8_Training.ipynb`**
+2. **`YOLOv8_Colab.ipynb`**
    * **Model:** YOLOv8 (Modern CNN variant).
    * **Role:** Features advanced backbone (CSPDarknet) and neck (PANet) architectures. It provided the highest accuracy for both string and shell detection.
 
-3. **`DINO_DETR_Training.ipynb`**
+3. **`DINO_DETR_Colab.ipynb`**
    * **Model:** DINO-DETR (Transformer-based).
-   * **Role:** Utilizes a DINOv3 backbone with a transformer-based detection head. It leverages global self-attention for detection, performing well on larger structures.
+   * **Role:** Utilizes a DINOv3 backbone with a transformer-based detection head. It leverages global self-attention for detection.
 
----
-
-## Performance Results
-Models were evaluated using Mean Average Precision at an IoU threshold of 0.50 (mAP@50).
-
-| Model | String Detection (mAP@50) | Shell Detection (mAP@50) |
-| :--- | :--- | :--- |
-| **YOLOv1** | 0.5869 | 0.0101 |
-| **YOLOv8** | **0.9950** | **0.9276** |
-| **DINO-DETR** | 0.8182 | 0.3063 |
 
 ---
 
